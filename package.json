@@ -2,7 +2,10 @@
   "name": "eslint-config-react-ts-hero",
   "version": "1.0.0",
   "description": "best eslint config for me for react & typescript applications",
-  "main": "index.js",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
