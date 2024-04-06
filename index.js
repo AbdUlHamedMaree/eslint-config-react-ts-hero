@@ -2,7 +2,6 @@
 
 /** @type {import('@typescript-eslint/utils').TSESLint.ClassicConfig.Config} */
 module.exports = {
-  root: true,
   extends: [
     'eslint:recommended',
     'plugin:prettier/recommended',
@@ -22,6 +21,7 @@ module.exports = {
     'react-refresh',
     'jsx-a11y',
     'import',
+    'unused-imports',
   ],
 
   env: {
@@ -49,13 +49,26 @@ module.exports = {
 
   rules: {
     // react-refresh
-    "react-refresh/only-export-components": "warn",
+    'react-refresh/only-export-components': 1,
 
     // prettier
     'prettier/prettier': 1,
 
     // react
     'react/prop-types': 0,
+
+    // unused-imports
+    '@typescript-eslint/no-unused-vars': 0,
+    'unused-imports/no-unused-imports': 2,
+    'unused-imports/no-unused-vars': [
+      1,
+      {
+        'vars': 'all',
+        'varsIgnorePattern': '^_',
+        'args': 'after-used',
+        'argsIgnorePattern': '^_',
+      },
+    ],
 
     // general
     'padding-line-between-statements': [
