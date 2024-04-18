@@ -1,10 +1,11 @@
-// @ts-check
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 const eslint = require('@eslint/js');
 const prettier_recommended = require('eslint-plugin-prettier/recommended');
 const tslint = require('typescript-eslint');
 const import_plugin = require('eslint-plugin-import');
 // const react_recommended = require('eslint-plugin-react/configs/recommended');
-// const react_jsx_runtime = require('eslint-plugin-react/configs/jsx-runtime');
+const react_jsx_runtime = require('eslint-plugin-react/configs/jsx-runtime');
 const react_hooks = require('eslint-plugin-react-hooks');
 const jsx_a11y = require('eslint-plugin-jsx-a11y');
 const react_refresh = require('eslint-plugin-react-refresh');
@@ -19,7 +20,10 @@ module.exports = [
   ...tslint.configs.recommended,
   {
     plugins: {
-      import: import_plugin,
+      import: {
+        configs: import_plugin.configs,
+        rules: import_plugin.rules,
+      },
     },
     rules: {
       ...import_plugin.configs.recommended.rules,
@@ -28,7 +32,7 @@ module.exports = [
     settings: import_plugin.configs.typescript.settings,
   },
   // react_recommended,
-  // react_jsx_runtime,
+  react_jsx_runtime,
   {
     plugins: {
       'react-hooks': react_hooks,
@@ -50,6 +54,7 @@ module.exports = [
       'react-refresh': react_refresh,
       // 'unused-imports': unused_imports,
     },
+
     languageOptions: {
       ecmaVersion: 'latest',
       parserOptions: {
@@ -60,6 +65,7 @@ module.exports = [
       globals: {
         ...globals.browser,
         ...globals.es2021,
+        ...globals.node,
       },
     },
     settings: {

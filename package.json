@@ -1,16 +1,26 @@
 {
   "name": "eslint-config-react-ts-hero",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.1",
   "description": "best eslint config for me for react & typescript applications",
   "main": "./index.js",
   "exports": {
     ".": "./index.js"
   },
-  "scripts": {
-    "lint": "eslint ./index.js"
+  "scripts": {},
+  "homepage": "https://github.com/AbdUlHamedMaree/eslint-config-react-ts-hero.git",
+  "bugs": {
+    "url": "https://github.com/AbdUlHamedMaree/eslint-config-react-ts-hero/issues"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AbdUlHamedMaree/eslint-config-react-ts-hero.git"
+  },
   "license": "MIT",
+  "author": {
+    "email": "hmidmrii@gmail.com",
+    "name": "Abd UlHameed Maree",
+    "url": "https://www.linkedin.com/in/abd-ul-hameed-maree"
+  },
   "dependencies": {
     "@eslint/js": "^9.0.0",
     "eslint-config-prettier": "^9.1.0",
@@ -25,11 +35,12 @@
     "typescript-eslint": "^7.5.0"
   },
   "devDependencies": {
+    "@types/node": "^20.12.7",
     "eslint": "^9.0.0",
     "prettier": "^3.2.5"
   },
   "peerDependencies": {
-    "eslint": ">=8.0.0",
-    "prettier": ">=3.0.0"
+    "eslint": ">=9.0.0",
+    "prettier": ">=2.0.0"
   }
 }
