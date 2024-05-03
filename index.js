@@ -4,7 +4,7 @@ const eslint = require('@eslint/js');
 const prettier_recommended = require('eslint-plugin-prettier/recommended');
 const tslint = require('typescript-eslint');
 const import_plugin = require('eslint-plugin-import');
-// const react_recommended = require('eslint-plugin-react/configs/recommended');
+const react_recommended = require('eslint-plugin-react/configs/recommended');
 const react_jsx_runtime = require('eslint-plugin-react/configs/jsx-runtime');
 const react_hooks = require('eslint-plugin-react-hooks');
 const jsx_a11y = require('eslint-plugin-jsx-a11y');
@@ -12,6 +12,13 @@ const react_refresh = require('eslint-plugin-react-refresh');
 // const unused_imports = require('eslint-plugin-unused-imports');
 
 const globals = require('globals');
+
+// NOTE: not supported yet
+delete react_recommended.rules['react/no-direct-mutation-state'];
+delete react_recommended.rules['react/no-string-refs'];
+delete react_recommended.rules['react/display-name'];
+delete react_recommended.rules['react/prop-types'];
+delete react_recommended.rules['react/require-render-return'];
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 module.exports = [
@@ -31,7 +38,7 @@ module.exports = [
     },
     settings: import_plugin.configs.typescript.settings,
   },
-  // react_recommended,
+  react_recommended,
   react_jsx_runtime,
   {
     plugins: {
@@ -52,7 +59,7 @@ module.exports = [
   {
     plugins: {
       'react-refresh': react_refresh,
-      // 'unused-imports': unused_imports,
+      'unused-imports': unused_imports,
     },
 
     languageOptions: {
@@ -74,6 +81,10 @@ module.exports = [
       },
     },
     rules: {
+      // typescript
+      '@typescript-eslint/no-explicit-any': [1],
+      '@typescript-eslint/consistent-type-imports': 2,
+
       // react-refresh
       'react-refresh/only-export-components': 1,
 
@@ -83,7 +94,7 @@ module.exports = [
       // react
       // 'react/prop-types': 0,
 
-      // unused-imports
+      // // unused-imports
       // '@typescript-eslint/no-unused-vars': 0,
       // 'unused-imports/no-unused-imports': 2,
       // 'unused-imports/no-unused-vars': [
