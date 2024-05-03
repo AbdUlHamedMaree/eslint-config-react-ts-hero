@@ -48,6 +48,10 @@ module.exports = {
   },
 
   rules: {
+    // typescript
+    '@typescript-eslint/no-explicit-any': [1],
+    '@typescript-eslint/consistent-type-imports': 2,
+
     // react-refresh
     'react-refresh/only-export-components': 1,
 
