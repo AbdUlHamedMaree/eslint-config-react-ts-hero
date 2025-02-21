@@ -7,6 +7,7 @@ import unusedImports from 'eslint-plugin-unused-imports';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactRefresh from 'eslint-plugin-react-refresh';
+import preferArrowFunctions from 'eslint-plugin-prefer-arrow-functions';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -72,9 +73,16 @@ export default [
   },
   reactRefresh.configs.vite,
   {
+    plugins: { 'prefer-arrow-functions': preferArrowFunctions },
     rules: {
+      'prefer-arrow-functions/prefer-arrow-functions': ['error'],
+    },
+  },
+  {
+    rules: {
+      'prefer-arrow-callback': ['error'],
       'padding-line-between-statements': [
-        1,
+        'error',
         {
           blankLine: 'always',
           prev: '*',

@@ -8,6 +8,7 @@ const unusedImports = require('eslint-plugin-unused-imports');
 const pluginReactHooks = require('eslint-plugin-react-hooks');
 const jsxA11y = require('eslint-plugin-jsx-a11y');
 const reactRefresh = require('eslint-plugin-react-refresh');
+const preferArrowFunctions = require('eslint-plugin-prefer-arrow-functions');
 
 /** @type {import('eslint').Linter.Config[]} */
 module.exports = [
@@ -73,9 +74,16 @@ module.exports = [
   },
   reactRefresh.configs.vite,
   {
+    plugins: { 'prefer-arrow-functions': preferArrowFunctions },
     rules: {
+      'prefer-arrow-functions/prefer-arrow-functions': ['error'],
+    },
+  },
+  {
+    rules: {
+      'prefer-arrow-callback': ['error'],
       'padding-line-between-statements': [
-        1,
+        'error',
         {
           blankLine: 'always',
           prev: '*',
