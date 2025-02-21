@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-
-const globals = require('globals');
 const pluginJs = require('@eslint/js');
 const tseslint = require('typescript-eslint');
 const pluginReact = require('eslint-plugin-react');
@@ -13,19 +11,29 @@ const reactRefresh = require('eslint-plugin-react-refresh');
 
 /** @type {import('eslint').Linter.Config[]} */
 module.exports = [
-  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
-  { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  pluginReact.configs.flat['jsx-runtime'],
   eslintPluginPrettierRecommended,
   importPlugin.flatConfigs.recommended,
+  importPlugin.flatConfigs.typescript,
+  {
+    settings: {
+      'import/resolver': {
+        // You will also need to install and configure the TypeScript resolver
+        // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
+        typescript: true,
+        node: true,
+      },
+    },
+  },
   {
     plugins: {
       'unused-imports': unusedImports,
     },
     rules: {
-      'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
+      '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',

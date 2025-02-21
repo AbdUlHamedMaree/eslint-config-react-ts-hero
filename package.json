@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-react-ts-hero",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "best eslint config for me for react & typescript applications",
   "main": "./index.js",
   "exports": {
