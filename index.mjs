@@ -1,18 +1,16 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-
-const globals = require('globals');
-const pluginJs = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const pluginReact = require('eslint-plugin-react');
-const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
-const importPlugin = require('eslint-plugin-import');
-const unusedImports = require('eslint-plugin-unused-imports');
-const pluginReactHooks = require('eslint-plugin-react-hooks');
-const jsxA11y = require('eslint-plugin-jsx-a11y');
-const reactRefresh = require('eslint-plugin-react-refresh');
+import globals from 'globals';
+import pluginJs from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import pluginReact from 'eslint-plugin-react';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import importPlugin from 'eslint-plugin-import';
+import unusedImports from 'eslint-plugin-unused-imports';
+import pluginReactHooks from 'eslint-plugin-react-hooks';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import reactRefresh from 'eslint-plugin-react-refresh';
 
 /** @type {import('eslint').Linter.Config[]} */
-module.exports = [
+export default [
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   pluginJs.configs.recommended,
