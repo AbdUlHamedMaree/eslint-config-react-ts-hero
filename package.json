@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-react-ts-hero",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "best eslint config for me for react & typescript applications",
   "main": "./index.js",
   "exports": {
@@ -49,6 +49,6 @@
   },
   "peerDependencies": {
     "eslint": ">=9.0.0",
-    "prettier": ">=2.0.0"
+    "prettier": ">=3.0.0"
   }
 }

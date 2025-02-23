@@ -20,16 +20,6 @@ module.exports = [
   importPlugin.flatConfigs.recommended,
   importPlugin.flatConfigs.typescript,
   {
-    settings: {
-      'import/resolver': {
-        // You will also need to install and configure the TypeScript resolver
-        // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
-        typescript: true,
-        node: true,
-      },
-    },
-  },
-  {
     plugins: {
       'unused-imports': unusedImports,
     },
@@ -80,6 +70,16 @@ module.exports = [
     },
   },
   {
+    settings: {
+      react: {
+        version: 'detect',
+      },
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+        },
+      },
+    },
     rules: {
       'prefer-arrow-callback': ['error'],
       'padding-line-between-statements': [
