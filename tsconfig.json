@@ -18,6 +18,6 @@
       "@/*": ["*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "eslint.config.mjs"],
   "exclude": ["node_modules"]
 }

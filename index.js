@@ -3,12 +3,13 @@ const pluginJs = require('@eslint/js');
 const tseslint = require('typescript-eslint');
 const pluginReact = require('eslint-plugin-react');
 const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
-const importPlugin = require('eslint-plugin-import');
+const { importX } = require('eslint-plugin-import-x');
 const unusedImports = require('eslint-plugin-unused-imports');
 const pluginReactHooks = require('eslint-plugin-react-hooks');
 const jsxA11y = require('eslint-plugin-jsx-a11y');
 const reactRefresh = require('eslint-plugin-react-refresh');
 const preferArrowFunctions = require('eslint-plugin-prefer-arrow-functions');
+const tsParser = require('@typescript-eslint/parser');
 
 /** @type {import('eslint').Linter.Config[]} */
 module.exports = [
@@ -17,13 +18,23 @@ module.exports = [
   pluginReact.configs.flat.recommended,
   pluginReact.configs.flat['jsx-runtime'],
   eslintPluginPrettierRecommended,
-  importPlugin.flatConfigs.recommended,
-  importPlugin.flatConfigs.typescript,
+  importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
+  importX.flatConfigs.react,
+  {
+    files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
+    languageOptions: {
+      parser: tsParser,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+    },
+  },
   {
     plugins: {
       'unused-imports': unusedImports,
     },
     rules: {
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
@@ -37,16 +48,7 @@ module.exports = [
       ],
     },
   },
-  //   pluginReactHooks.configs['recommended-latest'],
-  {
-    plugins: {
-      'react-hooks': pluginReactHooks,
-    },
-    rules: {
-      ...pluginReactHooks.configs.recommended.rules,
-    },
-  },
-
+  pluginReactHooks.configs['recommended-latest'],
   {
     plugins: {
       'jsx-a11y': jsxA11y,
@@ -74,12 +76,9 @@ module.exports = [
       react: {
         version: 'detect',
       },
-      'import/resolver': {
-        typescript: {
-          alwaysTryTypes: true,
-        },
-      },
     },
+  },
+  {
     rules: {
       'prefer-arrow-callback': ['error'],
       'padding-line-between-statements': [

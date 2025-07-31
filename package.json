@@ -1,19 +1,26 @@
 {
   "name": "eslint-config-react-ts-hero",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "best eslint config for me for react & typescript applications",
   "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
       "require": "./index.js",
-      "import": "./index.mjs"
+      "import": "./index.mjs",
+      "types": "./index.d.ts"
     }
   },
   "files": [
     "./index.js",
-    "./index.mjs"
+    "./index.mjs",
+    "./index.d.ts"
   ],
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint . --quiet",
+    "lint:fix": "bun lint --fix"
+  },
   "homepage": "https://github.com/AbdUlHamedMaree/eslint-config-react-ts-hero.git",
   "bugs": {
     "url": "https://github.com/AbdUlHamedMaree/eslint-config-react-ts-hero/issues"
@@ -29,23 +36,23 @@
     "url": "https://www.linkedin.com/in/abd-ul-hameed-maree"
   },
   "dependencies": {
-    "@eslint/js": "^9.20.0",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-import-resolver-typescript": "^3.8.3",
-    "eslint-plugin-import": "^2.31.0",
+    "@eslint/js": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prefer-arrow-functions": "^3.6.2",
-    "eslint-plugin-prettier": "^5.2.3",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
+    "eslint-plugin-prettier": "^5.5.3",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
     "eslint-plugin-unused-imports": "^4.1.4",
-    "typescript-eslint": "^8.24.1"
+    "typescript-eslint": "^8.38.0"
   },
   "devDependencies": {
-    "@types/node": "^22.13.4",
-    "eslint": "^9.20.1",
-    "prettier": "^3.5.1"
+    "@types/node": "^24.1.0",
+    "eslint": "^9.32.0",
+    "eslint-plugin-import-x": "^4.16.1",
+    "prettier": "^3.6.2"
   },
   "peerDependencies": {
     "eslint": ">=9.0.0",
